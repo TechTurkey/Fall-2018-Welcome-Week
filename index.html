@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- TODO: SET UP GOOGLE ANALYTICS TO TRACK TRAFFIC analytics.google.com -->
+
+  <meta charset="utf-8">
+
+  <!-- Included are Bootstrap CSS & JS - see https://getbootstrap.com/ for more info and documentation -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- <script src="Assets/JS/main.js"></script> -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" target="_blank" href="Assets/CSS/main.css">
+
+  <!-- TODO: ADD YOUR OWN favicon.ico -->
+  <link rel="shortcut icon" target="_blank" href="favicon.ico" type="image/x-icon">
+
+  <style>
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+
+    overflow-x: hidden;
+  }
+
+  .confetti {
+    flex-grow: 1;
+    /*margin-bottom: 60px;*/
+  }
+
+  .push {
+    height: 120px;
+  }
+
+  body {
+    /*background-image: url('Assets/Images/Pattern.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;*/
+    background-color: #f2c123;
+  }
+
+  .detail {
+    overflow: hidden;
+    max-height: 20px;
+
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .card:hover .detail {
+    max-height: 400px;
+  }
+
+  .card p {
+    overflow: hidden;
+    max-height: 20px;
+    transition: max-height 0.5s ease-out;
+
+  }
+
+  .card:hover p {
+    max-height: 0;
+  }
+
+  .card {
+    border-width: 2px;
+  }
+
+  .border-service {
+    border-color: #e64438;
+  }
+
+  .border-social {
+    border-color: #00A5D9;
+  }
+
+  .border-fundraising {
+    border-color: #39b699;
+  }
+
+  footer {
+    /*position: absolute;*/
+  }
+
+
+
+  /* basic positioning */
+  .legend {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: white;
+    border: solid 1px gray;
+  }
+  /*.legend li { float: left; margin-right: 10px; }*/
+  /*.legend { background-color: #39b699; color: white; }*/
+  .legend li { display: flex; align-items: center; margin: 0 5px;}
+  .legend li a { cursor: pointer; }
+  .legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 7px; }
+  /* your colors */
+  .legend .serviceicon.show { background-color: #e64438; }
+  .legend .fundraisingicon.show { background-color: #39b699; }
+  .legend .socialicon.show { background-color: #00A5D9; } /* Secondary */
+
+  .cards {
+    margin: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+
+</style>
+
+<title>UCLA CKI Welcome Week</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-lg p-3 mb-5" style="background-color: none;">
+    <a class="navbar-brand" href="#">UCLA CKI Welcome Week</a>
+    <button class="navbar-toggler" type="button" data-toggle=" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class= navbar" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto legend">
+        <li><a onClick="filterTag(this, 'service')"><span class="serviceicon show"></span> Service </a></li>
+        <li><a onClick="filterTag(this, 'fundraising')"><span class="fundraisingicon show"></span> Fundraising </a></li>
+        <li><a onClick="filterTag(this, 'social')"><span class="socialicon show"></span> Social/Misc. </a></li>
+        <li>(click to filter)</li>
+      </ul>
+    </div>
+
+    <div class="ml-auto">
+      <a style="color: white; font-family: 'Coming Soon', cursive;
+" href="http://www.uclacki.org">Visit the main website!<i class="fas fa-external-link-alt ml-2"></i></a>
+    </div>
+
+  </nav>
+<p style="margin-left: 15px; margin-bottom: 0; color: white; font-family: 'Coming Soon', cursive;">Contact <a href="mailto:uclackitech@gmail.com">uclackitech@gmail.com</a> for any questions! Our first meeting is October 4th, 7PM in Kinsey 1220B</p>
+<p style="margin-left: 15px;">If you want to signup for a <strong>service event</strong>, please RSVP for transportation 
+<a href="http://welcome.uclacki.org/signup">here!</a>. Feel free to just show up at any of our other events.</p>
+
+
+  
+
+
+  <div class="container-fluid mt-4" style="text-align: center">
+
+    <!-- <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <img class="card-img-top" src="Assets/Images/Diddy.jpg" alt="Diddy Riese">
+          <div class="card-body">
+            <h4 class="small">MON 10/1 • 5:00PM - 8:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Diddy Riese</h3>
+            <div class="detail">
+              <p>Come get ice cream</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">TUES 10/2 • 4:30PM - 11:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Spirit of Excellence Awards Dinner</h3>
+            <div class="detail">
+              Dinner
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">TUES 10/2 • 4:00PM - 7:30PM</h4>
+            <h4 class="small"></h4>
+            <h3>Wheelchair Basketball</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mb-4 no-gutters"></div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">TUES 10/2 • 4:00PM - 7:30PM</h4>
+            <h4 class="small"></h4>
+            <h3>Wheelchair Basketball</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">TUES 10/2 • 2:00PM - 5:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Builder's Club Meeting</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg class="fundraising"-3 col-md-3 col-sm-12">
+        <div class="card border-fundraising"> 
+
+          <div class="card-body">
+            <h4 class="small">WED 10/3 • 5:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Chipotle Fundraiser</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card"> 
+
+          <div class="card-body">
+            <h4 class="small">THUR 10/3 • 7:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>1st General Meeting</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">FRI 10/5 • 2:00PM - 6:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>K-Kids Fall Festival</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">FRI 10/5 • 6:00PM - 9:30PM</h4>
+            <h4 class="small"></h4>
+            <h3>Burrito Night for the Homeless</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">MON 10/8 • 2:00PM - 6:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Member Mixer</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">MON 10/8 • 2:00PM - 6:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Mini UCLA Photoshoot</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">TUES 10/9 • 4:00PM - 7:30PM</h4>
+            <h4 class="small"></h4>
+            <h3>Wheelchair Basketball</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg class="fundraising"-3 col-md-3 col-sm-12">
+        <div class="card border-fundraising"> 
+
+          <div class="card-body">
+            <h4 class="small">WED 10/10 • 5:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Spam Musubi Cook Night</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">WED 10/10 • 6:00PM - 8:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Board Games with Board</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg class="fundraising"-3 col-md-3 col-sm-12">
+        <div class="card border-fundraising"> 
+
+          <div class="card-body">
+            <h4 class="small">THUR 10/11 • 9:00AM - 3:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Bruin Walk Fundraiser</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card"> 
+
+          <div class="card-body">
+            <h4 class="small">THUR 10/11 • 7:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>2nd General Meeting</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">THUR 10/11 • 2:00PM - 5:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>K-Kids Meeting</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">FRI 10/12 • 5:11PM - ? • </h4>
+            <h3>Beach Bonfire</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><
+
+    <div class="row justify-content-around mb-4 no-gutters">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">SAT 10/13 • 8:00AM - 12:30PM</h4>
+            <h4 class="small"></h4>
+            <h3>Be a Tennis Coach for Kids with Autism</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-social"> 
+
+          <div class="card-body">
+            <h4 class="small">SAT 10/13 • 6:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Progressive Dinner</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card border-service"> 
+
+          <div class="card-body">
+            <h4 class="small">SUN 10/14• 5:00PM - 9:00PM</h4>
+            <h4 class="small"></h4>
+            <h3>Feed the Homeless with GWFC</h3>
+            <div class="detail">
+              detail
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+  <div class="cards">
+    <div class="social">
+      <div class="card border-social"> 
+        <img class="card-img-top" src="Assets/Images/Diddy.jpg" alt="Diddy Riese">
+        <div class="card-body">
+          <h4 class="small">MON 10/1 • 7:00PM - 8:00PM</h4>
+          <h4 class="small">De Neve Turnaround</h4>
+          <h3>Diddy Riese</h3>
+          <div class="detail">
+            <p>...</p>
+            Come get ice cream
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+        <img class="card-img-top" src="Assets/Images/Builders.png">
+        <div class="card-body">
+          <h4 class="small">TUES 10/2 • 2:00PM - 5:00PM</h4>
+          <h4 class="small">Bruin Bear at 2:15PM</h4>
+          <h3>Builder's Club Meeting</h3>
+          <div class="detail">
+            <p>...</p>
+            Come out and interact with our Youth Branch as they have their first meeting of the year and do some service
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">TUES 10/2 • 4:00PM - 7:30PM</h4>
+          <h4 class="small">Collins Court (Wooden) anytime 4-7PM</h4>
+          <h3>Wheelchair Basketball</h3>
+          <div class="detail">
+            <p>...</p>
+            Come be a baller and play some wheelchair basketball with para-athletes! It's really fun and quite the workout! 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">TUES 10/2 • 4:30PM - 11:00PM</h4>
+          <h4 class="small">De Neve Turnaround</h4>
+          <h3>Spirit of Excellence Awards Dinner</h3>
+          <div class="detail">
+            <p>...</p>
+            Assist with greeting guest, check in, goodie bags, auction, and check-out! Through the T.J. Martell Foundation
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fundraising">
+      <div class="card border-fundraising"> 
+        <img class="card-img-top" src="Assets/Images/Chipotle.jpg">
+        <div class="card-body">
+          <h4 class="small">WED 10/3 • 5:00PM - 9:00PM</h4>
+          <h4 class="small">De Neve Turnaround, 5:00PM</h4>
+          <h3>Chipotle Fundraiser</h3>
+          <div class="detail">
+            <p>...</p>
+            Meet new members and bond with your friends while supporting Feeding America! Meet us at De Neve Turnaround at 5PM so we can all walk down together.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="social">
+      <div class="card border-social"> 
+
+        <div class="card-body">
+          <h4 class="small">THUR 10/3 • 7:00PM - 9:00PM</h4>
+          <h4 class="small">Kinsey 1220B at 7:00PM</h4>
+          <h3>1st General Meeting</h3>
+          <div class="detail">
+            <p>...</p>
+            Come learn about UCLA Circle K!
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+        <img class="card-img-top" src="Assets/Images/K-Kids Fall.jpg">
+        <div class="card-body">
+          <h4 class="small">FRI 10/5 • 2:00PM - 6:00PM</h4>
+          <h4 class="small">De Neve Plaza</h4>
+          <h3>K-Kids Fall Festival</h3>
+          <div class="detail">
+            <p>...</p>
+            Volunteering at the K-Kids Elementary school Fall Festival with setting up and down and running some booths!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">FRI 10/5 • 6:00PM - 9:30PM</h4>
+          <h4 class="small">De Neve Turnaround, 6:00PM</h4>
+          <h3>Burrito Night for the Homeless</h3>
+          <div class="detail">
+            <p>...</p>
+            Roll and pass out burritos to the homeless from a mobile food truck. Last year they donated over 40,000 meals to those in need.. let's help them beat that number this year!
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">SAT 10/6 • 10:15AM - 5:00PM</h4>
+          <h4 class="small">De Neve Turnaround</h4>
+          <h3>LA Family Day at the Grove</h3>
+          <div class="detail">
+            <p>...</p>
+            Help with set up, creating goodie bags, check in, games, handing out goodie bags and breakdown. American Idol Season 16 winner Maddie Poppe is scheduled to perform along with other top music artists. Families will enjoy delicious food, a live auction, live musical performances, games, prizes and other activities. 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">SUN 10/7 • 7:00AM - 1:00PM</h4>
+          <h4 class="small">De Neve Turnaround athletes 7:00AM</h4>
+          <h3>Restoring the Angeles National Forest</h3>
+          <div class="detail">
+            <p>...</p>
+            Below the rocky hills of the Sierra Pelona mountains, next to a creek leading to the Santa Clara River, we will be restoring an area of the wildlands damaged by the Copper Fire by caring for the native chaparral plants which provide deer, coyotes and others with food and shelter.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">SUN 10/7 • 2:00PM - 5:00PM</h4>
+          <h4 class="small">Bruin Bear at 2:00PM</h4>
+          <h3>Encourage the Elderly</h3>
+          <div class="detail">
+            <p>...</p>
+            Love and encourage the elderly in the Dementia Ward at Santa Monica Convalescent Center! Very meaningful service opportunity - it pulls at your heartstrings!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="social">
+      <div class="card border-social"> 
+        <img class="card-img-top" src="Assets/Images/Member Mixer.jpg" />
+        <div class="card-body">
+          <h4 class="small">MON 10/8 • 2:00PM - 6:00PM</h4>
+          <h4 class="small">Royce Quad</h4>
+          <h3>Member Mixer</h3>
+          <div class="detail">
+            <p>...</p>
+            Meet new and returning members while partaking in fun activities!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="card border-social"> 
+        <img class="card-img-top" src="Assets/Images/Photoshoot.jpg">
+        <div class="card-body">
+          <h4 class="small">MON 10/8 • 2:00PM - 6:00PM</h4>
+          <h4 class="small">Royce Quad</h4>
+          <h3>Mini UCLA Photoshoot</h3>
+          <div class="detail">
+            <p>...</p>
+            It's a tradition to take a picture at the iconic Royce Hall, so come join us at the Member Mixer and get yours on Monday, October 8th!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">TUES 10/9 • 4:00PM - 7:30PM</h4>
+          <h4 class="small">Collins Court (Wooden) anytime 4-7PM</h4>
+          <h3>Wheelchair Basketball</h3>
+          <div class="detail">
+            <p>...</p>
+            Come be a baller and play some wheelchair basketball with para-athletes! It's really fun and quite the workout! 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="fundraising">
+      <div class="card border-fundraising"> 
+        <img class="card-img-top" src="Assets/Images/Spam.jpg">
+        <div class="card-body">
+          <h4 class="small">WED 10/10 • 5:00PM - 9:00PM</h4>
+          <h4 class="small">De Neve Plaza at 4:45 PM </h4>
+          <h3>Spam Musubi Cook Night</h3>
+          <div class="detail">
+            <p>...</p>
+            Come out and learn how to cook and make musubi while mingling with friends!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="card border-social"> 
+
+        <div class="card-body">
+          <h4 class="small">WED 10/10 • 6:00PM - 8:00PM</h4>
+          <h4 class="small">Hedrick Movement Studio</h4>
+          <h3>Board Games with Board</h3>
+          <div class="detail">
+            <p>...</p>
+            Get to know board members and play board games! 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fundraising">
+      <div class="card border-fundraising"> 
+        <img class="card-img-top" src="Assets/Images/Spam Sale.png">
+        <div class="card-body">
+          <h4 class="small">THUR 10/11 • 9:00AM - 2:00PM</h4>
+          <h4 class="small">Bruin Walk</h4>
+          <h3>Bruin Walk Fundraiser</h3>
+          <div class="detail">
+            <p>...</p>
+            Get a taste of the delicious spam musubi made at cook night! All proceeds will go towards the Pediatric Trauma Program. Primarily sold as preorders so order yours now! <a href="https://goo.gl/forms/a46DfUGRKe0m2fg63">https://goo.gl/forms/a46DfUGRKe0m2fg63</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+        <img class="card-img-top" src="Assets/Images/K-Kids.png">
+        <div class="card-body">
+          <h4 class="small">THUR 10/11 • 2:00PM - 5:00PM</h4>
+          <h4 class="small">De Neve Plaza at 2:00PM</h4>
+          <h3>K-Kids Meeting</h3>
+          <div class="detail">
+            <p>...</p>
+            Come out and interact with our Youth Branch as they have their first meeting of the year and do some service
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="card border-social"> 
+
+        <div class="card-body">
+          <h4 class="small">THUR 10/11 • 7:00PM - 9:00PM</h4>
+          <h4 class="small">Kinsey 1220B, 7PM</h4>
+          <h3>2nd General Meeting</h3>
+          <div class="detail">
+            <p>...</p>
+            Come learn about UCLA Circle K! We will have a committee showcase so you can check out if you're interested
+            in getting involved in one of our 8 committees!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="card border-social"> 
+        <img class="card-img-top" src="Assets/Images/Bonfire.jpg" />
+        <div class="card-body">
+          <h4 class="small">FRI 10/12 • 5:00PM - 11:00PM</h4>
+          <h4 class="small">De Neve Turnaround</h4>
+          <h3>Beach Bonfire</h3>
+          <div class="detail">
+            <p>...</p>
+            Missed the beach this summer? Well this event is the perfect opportunity before it's officially fall to cook some smores by the fire and hang out!
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">SAT 10/13 • 8:00AM - 12:30PM</h4>
+          <h4 class="small">De Neve Turnaround at 8:00AM</h4>
+          <h3>Be a Tennis Coach for Kids with Autism</h3>
+          <div class="detail">
+            <p>...</p>
+            Get your tennis game on and work with KEEN (Kids Enjoy Exercise Now) athletes between the ages of 5 and 18 as a tennis coach. You get to work one-on-one with an autistic kid to build up their tennis skills!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social">
+      <div class="card border-social"> 
+        <img class="card-img-top" src="Assets/Images/Progressive Dinner.jpg" />
+        <div class="card-body">
+          <h4 class="small">SAT 10/13 • 6:00PM - 9:00PM</h4>
+          <h4 class="small">De Neve Turnaround</h4>
+          <h3>Progressive Dinner</h3>
+          <div class="detail">
+            <p>...</p>
+            Eat a full course meal while apartment hopping! 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="service">
+      <div class="card border-service"> 
+
+        <div class="card-body">
+          <h4 class="small">SUN 10/14 • 5:00PM - 9:00PM</h4>
+          <h4 class="small">De Neve Turnaround at 4:45PM</h4>
+          <h3>Feed the Homeless with GWFC</h3>
+          <div class="detail">
+            <p>...</p>
+            Help set-up and serve a delicious meal to the homeless in greater west hollywood. This is a meaningful service events that always needs a couple of extra hands. Come put some smiles on these lovely peoples faces.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="push">
+    <!-- push the footer down -->
+  </div>
+</div>
+
+    <!-- NOTE: This masthead is slightly resized (wordmark and CNH logo downsized a bit) to better
+      fit full-width web screens -->
+      <footer>
+        <img src="Assets/masthead_resized.png" id="masthead" alt="">
+      </footer>
+
+
+      <script type="text/javascript">
+      // $(".card-body").mouseenter(function() {
+      //   $(this).children(".detail")("show");
+      // })
+      // $(".card-body").mouseleave(function() {
+      //   $(this).children(".detail")("hide");
+      // })
+      // $(".card").hover(function() {
+      //   // $(".card .detail").stop(true, true)("hide");
+      //   $(this).find(".detail").stop(true, true)("show");
+      // }, function() {
+      //   $(this).find(".detail").stop(true, true)("hide");
+      // })
+
+      function filterTag(event, tag) {
+        let element = $('.' + tag);
+        let display = element.css("display");
+        console.log(display);
+        if(display=='none')
+          $('.' + tag).css("display", "block");
+        else
+          $('.' + tag).css("display", "none");
+        $(event).children(":first").toggleClass("show");
+        // console.log();
+      }
+    </script>
+  </body>
+  </html>

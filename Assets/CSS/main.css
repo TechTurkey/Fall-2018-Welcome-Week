@@ -1,0 +1,47 @@
+/* CNH CIRCLE K GRAPHICS STANDARDS COLORS:
+  Yellow #F2E18B
+  Olive Green #9EA374
+  Light Blue #C7D6EE
+  Red #820024
+  Dark Grey #58595B
+  Orange #F58025
+  Green #6A9448
+  Cyan #00A5D9
+  Blue #003D79
+  Black #231F20
+*/
+
+/* CNH CIRCLE K GRAPHICS STANDARDS FONTS: */
+@font-face{font-family: 'CenturyGothic'; src: url(../Fonts/CenturyGothic.ttf) format('truetype');}
+@font-face{font-family: 'MyriadPro'; src: url(../Fonts/MyriadPro-Regular.otf) format('opentype');}
+@font-face{font-family: 'Archer'; src: url(../Fonts/Archer-Semibold.otf) format('opentype');}
+@font-face{font-family: 'Garamond'; src: url(../Fonts/Garamond.ttf) format('truetype');}
+
+/* FONTS DEMO */
+#description{ font-family: "CenturyGothic"; }
+#CenturyGothic{ font-family: "CenturyGothic"; }
+#MyriadPro{ font-family: "MyriadPro"; }
+#Archer{ font-family: "Archer"; }
+#Garamond{ font-family: "Garamond"; }
+
+h1 {
+  /* TODO: Style your main text elements */
+}
+
+h2{
+  /* TODO: Style your main text elements */
+}
+
+p{
+  /* TODO: Style your main text elements */
+}
+
+#masthead{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    /* TODO: Add CSS properties here for smaller screens (with width 768px or less, as indicated above) */
+}
