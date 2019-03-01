@@ -38,9 +38,10 @@
     height: 100%;
     font-family: "Century Gothic", sans-serif;
 
-    background-image: url('Background.png');
-    background-position: center top;
-    background-size: auto 100%;
+    background-image: url('Assets/Images/Service Marathon W19.png');
+    /*background-position: center top;*/
+    /*background-size: auto 100%;*/
+    background-size: cover;
     background-repeat: no-repeat;
   }
   @media (min-width: 1360px) {
@@ -91,6 +92,46 @@
   #calendar-container .fc-widget-content {
     /*border-width: 5px;*/
   }
+
+  #legend {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    margin: 0;
+    padding: 5px 0;
+    background: white;
+
+    justify-content: center;
+  }
+  #legend li {
+    /*border: 1px solid black;*/
+    border-radius: 3px;
+    margin-right: 6px;
+    font-weight: bold;
+  }
+  #legend-service {
+    background-color: #e1dfdf;
+    color: black;
+  }
+  #legend-family {
+    background-color: #00827f;
+    color: white;
+  }
+  #legend-tabletop {
+    background-color: #d42426;
+    color: white;
+  }
+  #legend li p {
+    margin: 0;
+    padding: 3px 2px;
+  }
 </style>
 
 <title>UCLA CKI Service Marathon</title>
@@ -117,13 +158,17 @@
   <p style="margin-left: 15px;">If you want to signup for a <strong>service event</strong>, please RSVP for transportation 
     <a href="http://welcome.uclacki.org/signup">here!</a>. Feel free to just show up at any of our other events.</p> -->
     <div id="title">
-      <h1>SERVICE MARATHON</h1>
+      <!-- <h1>SERVICE MARATHON</h1> -->
       <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSeI0R5tIhbAPd9x1eYX9xaRX-dkpTKVrCbzHVwt4HTr7k0N-w/viewform?fbclid=IwAR3p7Sh4AyrRaAXL67NPvoIxQZKWnRhjiOVFrRVfbXa2juLcBGYamkaKei4">Event signup form</a> | <a href="http://www.uclacki.org">Visit the main website!<i class="fas fa-external-link-alt ml-2"></i></a></p>
     </div>
 
     <div id="calendar-container">
       <div id="calendar">
-
+        <ul id="legend">
+          <li id="legend-service"><p>Service</p></li>
+          <li id="legend-family"><p>Family</p></li>
+          <li id="legend-tabletop"><p>Tabletop</p></li>
+        </ul>
       </div>
     </div>
 

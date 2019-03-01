@@ -8,9 +8,9 @@ $(function(){
 		height: "parent",
 		dayRender: function(date, cell) {
 			if(moment().diff(date,'days') > 0){
-				cell.css("background-color","#dddddd");
+				cell.css("background-color","rgba(200, 200, 200, 0.8");
 			} else {
-				cell.css("background-color", "rgba(255, 255, 255, 1)")
+				cell.css("background-color", "rgba(255, 255, 255, 0.8)")
 			}
 		},
 		eventClick: function(calEvent, jsEvent, view) {
@@ -25,7 +25,7 @@ $(function(){
 		},
 		timezone: "local",
 		defaultView: "week",
-		defaultDate: '2018-11-25',
+		defaultDate: '2019-02-25',
 		views: {
 			week: {
 				type: 'basic',
@@ -60,192 +60,199 @@ $(function(){
 
 const tabletop = [
 {
-	title: 'Service Committee Meeting / Tabletop',
-	start: '2018-11-26 19:00:00',
-	end: '2018-11-26 20:00:00',
-	description: "Help plan service events and provide us with feedback on what kind of service events you like or dislike. Also make Christmas cards for children in the hospital and the custodians on campus!",
+	title: 'Tabletop at GM',
+	start: '2019-02-28 19:00:00',
+	end: '2019-02-28 20:00:00',
+	description: "Come out and make nice cards to give to the student parents of kids at UCLA day care center!",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-11-26 20:00:00',
-	end: '2018-11-26 22:00:00',
-	description: "Finish making Christmas cards!!",
+	start: '2019-03-01 20:00:00',
+	end: '2019-03-01 22:00:00',
+	description: "Come out and make stressballs for the parents at the UCLA Day Care Center.",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-11-27 21:00:00',
-	end: '2018-11-27 22:00:00',
-	description: "Help make paper cranes to put into gift bags!",
+	start: '2019-03-02 20:00:00',
+	end: '2019-03-02 22:00:00',
+	description: "Help make flash cards for the kids at the day care center.",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-11-28 19:00:00',
-	end: '2018-11-28 21:00:00',
-	description: "Put together coloring book for the children in the hopsital ",
-	chair: 'Gina Apinyavat'
-},
-{
-	title: 'CKI General Meeting',
-	start: '2018-11-29 19:00:00',
-	end: '2018-11-29 20:30:00',
-	description: "Tabletop: Writing Letter's to Santa and sending them to Macy's. Every letter written donates $1 to the Make-A-Wish Foundation",
+	start: '2019-03-03 21:00:00',
+	end: '2019-03-03 23:00:00',
+	description: "Help make silly putty for the kids at the UCLA Day Care Center!",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-11-30 20:00:00',
-	end: '2018-11-30 22:00:00',
-	description: "Help make Christmas wreaths for the children in the hospital ",
+	start: '2019-03-04 21:30:00',
+	end: '2019-03-04 23:30:00',
+	description: "Come out and help us put together activity books for the kids at the Day Care Center!",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-12-02 19:00:00',
-	end: '2018-12-02 21:00:00',
-	description: "Today we will be baking cookies for the custodians!",
+	start: '2019-03-05 20:00:00',
+	end: '2019-03-05 22:00:00',
+	description: "Help us make bookmarks for the kids at the UCLA Day Care Center!",
 	chair: 'Gina Apinyavat'
 },
 {
 	title: 'Tabletop Service',
-	start: '2018-12-03 20:00:00',
-	end: '2018-12-03 22:00:00',
-	description: "Please help us package all the items into the gift bags. We need 50 care packages for kids in the hospital and 50 care packages for our campus custodians who work so hard every day.",
+	start: '2019-03-06 20:00:00',
+	end: '2019-03-06 22:00:00',
+	description: "Help us bake cookies and put together the gift bags to be ready to deliver!",
 	chair: 'Gina Apinyavat'
-}
+},
 
 ];
 
 const family = [
 {
-	title: 'PikaTroopers: Feeding Homeless',
-	start: '2018-11-27 18:30:00',
-	end: '2018-11-27 21:30:00',
+	title: 'SICK: ',
+	start: '2019-02-28 18:30:00',
+	end: '2019-02-28 21:30:00',
 	description: "Roll and Pass out burritos to the homeless population from a mobile food truck",
 	chair: 'Ryan/Vicky/Sarah'
 },
 {
-	title: 'Fomo Fam: GWFC',
-	start: '2018-11-30 17:45:00',
-	end: '2018-11-30 20:30:00',
+	title: 'WBB: ',
+	start: '2019-03-02 17:45:00',
+	end: '2019-03-02 20:30:00',
 	description: "Volunteering for our daily meal service M-F will include helping to set up the dining room, serving a freshly prepared meal, washing the items we have used to serve the dinner, breaking down one of the dining rooms (10-15 minutes) and a final cleaning of the dining room and the kitchen. At the end of the day, cleaning the kitchen is just as important as serving the meal. A thorough cleaning upholds our high hygienic standards and ensures safety for all.",
-	chair: 'Calvin/Irene/Jessica'
-},
-{
-	title: 'BulbaBuds: Planting in Baldwin Hills',
-	start: '2018-12-01 08:00:00',
-	end: '2018-12-01 13:30:00',
-	description: "This is a project with Park Champions. Their projects improve the quality, safety and preservation of our state parks. This time we will be planting native plants in the park! A delicious lunch from a fancy vegan place will be provided",
-	chair: 'Uyen/Frankie/Jone'
-},
-{
-	title: 'Sick: Shop for Success',
-	start: '2018-12-01 08:30:00',
-	end: '2018-12-01 14:30:00',
-	description: "We will be helping out at a pop-up shop on the day of the event! Most likely we will be assisting with selling merchandise, organizing the shop, and talking to customers. There will be some light snacks provided and it should be a lot of fun!",
-	chair: 'Mara/Sharlene/Tiffany'
-},
-{
-	title: 'Thicc: Shop for Success',
-	start: '2018-12-01 13:30:00',
-	end: '2018-12-01 19:30:00',
-	description: "We will be helping out at a pop-up shop on the day of the event! Most likely we will be assisting with selling merchandise, organizing the shop, and talking to customers. There will be some light snacks provided and it should be a lot of fun!",
-	chair: 'Tiffany Tu/JQ/Jolene'
-},
-{
-	title: 'Bare: Shop for Success',
-	start: '2018-12-02 08:30:00',
-	end: '2018-12-02 14:30:00',
-	description: "We will be helping out at a pop-up shop on the day of the event! Most likely we will be assisting with selling merchandise, organizing the shop, and talking to customers. There will be some light snacks provided and it should be a lot of fun!",
-	chair: 'Amy/Danny/Jenny'
-},
-{
-	title: 'Jack: Santa Monica Forest Restoration',
-	start: '2018-12-02 09:00:00',
-	end: '2018-12-02 12:00:00',
-	description: "Join TreePeople and MRCA as we restore creekside habitat in beautiful Las Virgenes Canyon. Once again we will take you into public lands that are not open to the general public. Deer, bobcat and coyotes are often seen traversing the banks of the creek and adjacent woodland. <a href=\"https://www.treepeople.org/calendar/volunteer-events/2018-12-02/santa-monica-mountains-restoration\">Link to Volunteer</a>",
-	chair: 'Khoa/Nhu/Matthew'
-},
-{
-	title: 'Snacc: Shop for Sucess',
-	start: '2018-12-02 13:30:00',
-	end: '2018-12-02 19:30:00',
-	description: "We will be helping out at a pop-up shop on the day of the event! Most likely we will be assisting with selling merchandise, organizing the shop, and talking to customers. There will be some light snacks provided and it should be a lot of fun!",
-	chair: 'Jonathan Fan/Katie/Noah'
+	chair: 'Amy/Jenny/Danny'
 }
 ];
 
 const service = [
 {
-	title: 'Monday Mornings: Animal Blankets',
-	start: '2018-11-26 09:00:00',
-	end: '2018-11-26 12:30:00',
-	description: "Come make animal blankets for the Amanda Foundation! Really fun group of people and they hinted at having food...",
+	title: 'Serve Breakfast to the Homeless',
+	start: '2019-02-28 06:30:00',
+	end: '2019-02-28 10:15:00',
+	description: "Come kick off your thursday morning (AND SERVICE MARATHONG) by serving a hot breakfast to between 200 and 300 homeless individuals. We will be helping with set-up, clean-up as well as serving coffee, working in the ketichen, cleaning tables, resetting tables and offering smiles.",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Campus Cleanup',
+	start: '2019-02-28 18:00:00',
+	end: '2019-02-28 19:00:00',
+	description: "After GM, come help revitalize the campus with a campus cleanup!",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Fundraiser',
+	start: '2019-03-01 16:00:00',
+	end: '2019-03-01 19:30:00',
+	description: "",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Students of the Year Gala',
+	start: '2019-03-01 16:45:00',
+	end: '2019-03-01 22:30:00',
+	description: "",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Kids and Horses',
+	start: '2019-03-02 08:00:00',
+	end: '2019-03-02 16:00:00',
+	description: "Horses are a special tool that can help physically and mentally challenged people develop skills. Our job will be assisting the instructor wiht the children and horses, which includes leading horses and spotting (Walking alongside the horse to ensure child's safey and position changes)",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'I Love Lucy Radio Theater (?)',
+	start: '2019-03-02 17:30:00',
+	end: '2019-03-02 18:45:00',
+	description: "",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Los Angeles Forest Restoration',
+	start: '2019-03-03 08:00:00',
+	end: '2019-03-03 13:30:00',
+	description: "Come spend your morning in the (hopefully not too hot) sun and help restore the Angeles National Forest",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Scholarship and Student Support Initatives',
+	start: '2019-03-03 09:30:00',
+	end: '2019-03-03 11:30:00',
+	description: "",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Help the Homeless: One Step at a Time',
+	start: '2019-03-03 13:30:00',
+	end: '2019-03-03 16:00:00',
+	description: "Ever seen a homeless veteran wearing shoes that are falling apart and held together by duct tape or a homeless student with shoes so small and tight that it cuase the child to limp? What about a homeless man or woman with sores on the bottom of their feet from walking without shoes? Well, come help process/sort shoes, put rubber bands around each pair and put them in groups then place them in bags.",
 	chair: 'Kylee Lyons'
 },
 {
 	title: 'Serve Breakfast to the Homeless',
-	start: '2018-11-27 06:30:00',
-	end: '2018-11-27 10:00:00',
-	description: "Help out at the St. Francis Center's Family Well-Being Program, where we will be serving the homeless a warm meal for breakfast. The Staint Francis Center distributes over one million pounds of food through their programs and us volunteering at the front lines will help distribution move quicker and easier. ",
+	start: '2019-03-04 06:30:00',
+	end: '2019-03-04 10:15:00',
+	description: "Come kick off your thursday morning (AND SERVICE MARATHONG) by serving a hot breakfast to between 200 and 300 homeless individuals. We will be helping with set-up, clean-up as well as serving coffee, working in the ketichen, cleaning tables, resetting tables and offering smiles.",
+	chair: 'Kylee Lyons'
+},
+{
+	title: '#TreePoseChallenge Round 1',
+	start: '2019-03-04 12:00:00',
+	end: '2019-03-04 14:30:00',
+	description: "Come help with advocacy for the trees and for nature, while having a really fun time! We're going to hike to the Lone Tree, pose with it and post those photos on some sort of social media with the hashtag #TreePoseChallenge. Trees need people and people need trees and with the onslaught of wildfires, droughts, excessive heat and massive flooding, our community needs help and we can help by showing our love of the trees!",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Alexandria House Cooknight',
+	start: '2019-03-04 15:00:00',
+	end: '2019-03-04 19:30:00',
+	description: "",
+	chair: 'Kylee Lyons'
+},
+{
+	title: 'Beach Cleanup',
+	start: '2019-03-05 14:30:00',
+	end: '2019-03-05 17:00:00',
+	description: "Not busy in the middle of the day on this lovely monday? WELLL, come join us as we help pickup trash at the beach!",
 	chair: 'Kylee Lyons'
 },
 {
 	title: 'Wheelchair Basketball',
-	start: '2018-11-27 16:00:00',
-	end: '2018-11-27 19:30:00',
+	start: '2019-03-05 16:00:00',
+	end: '2019-03-05 20:00:00',
 	description: "Come be a baller and play some wheelchair basketball with para-athletes! It's really fun and quite the workout!",
 	chair: 'Kylee Lyons'
 },
 {
-	title: 'Be a Kid Again: Game Night with Midnight Mission',
-	start: '2018-11-27 17:30:00',
-	end: '2018-11-27 21:00:00',
-	description: "The children at Midnight Mission’s Homelight Family Living Program in Inglewood look forward to every Tuesday night when L.A. Works volunteers spend time with them playing games, doing arts and crafts projects (from Play-Doh to rockets), reading books, and just having fun while their parents attend classes and counseling sessions. The seemingly simple act of interacting with the children is a highlight of their day and can be of yours too!",
+	title: 'kNOw Waste Youth Education Program Prep',
+	start: '2019-03-06 12:00:00',
+	end: '2019-03-06 16:00:00',
+	description: "Come help FOOD FORWARD prepare materials for their Winter session of the kNOw Waste Education Program. This program seeks to educate 5th graders about issues surrounding food waste and food justice, inspiring them to make a difference in their community. Volunteers should be comfortable with cooking, baking, poster making, and general organizational tasks to assist with the prep for our kNOw Waste Education Program!",
 	chair: 'Kylee Lyons'
 },
 {
-	title: 'Anti-Poaching Gala',
-	start: '2018-11-28 16:30:00',
-	end: '2018-11-28 23:30:00',
-	description: "Help at a nice gala to raise funds to stop poaching! We will be helping with the food and drink, the auction, and other general necessities. There will be some Picasso paintings there and a guy who took over singing for Bob Marley! ",
+	title: 'Stock the Pantry',
+	start: '2019-03-06 17:00:00',
+	end: '2019-03-06 20:30:00',
+	description: "Come help prepare nutritious grocery bags for those living with HIV/AIDs.",
 	chair: 'Kylee Lyons'
 },
 {
-	title: 'Campus CleanUp',
-	start: '2018-11-29 17:30:00',
-	end: '2018-11-29 18:45:00',
-	description: "Right before GM, we'll go around moving recycled items from the trast can into the recycle bin. Also pick up any trash around campus",
+	title: 'Hygiene Kit Making with Bruin Shelter',
+	start: '2019-03-07 11:00:00',
+	end: '2019-03-07 15:30:00',
+	description: "Come help the campus club known as Bruin Shelter as they prepare hygiene kits for homeless organizations.",
 	chair: 'Kylee Lyons'
 },
 {
-	title: 'Beach CleanUp',
-	start: '2018-11-30 16:00:00',
-	end: '2018-11-30 20:00:00',
-	description: "Help the environment by cleaning up plastic and waste on the beach then watch the sunset with friends! ",
-	chair: 'Kylee Lyons'
-},
-{
-	title: 'Holiday Party at the Los Angeles Child Guidance Clinic',
-	start: '2018-12-01 11:00:00',
-	end: '2018-12-01 17:00:00',
-	description: "Los Angeles Child Guidance Center has been a mental health provider for over 90 years, and it seeks to improve the social and emotional relationships, emotional development, and community functioning levels of children and their families who reside in the high-need, resource poor communities of Central and South Los Angeles. They are throwing their annual client holiday party and need volunteers to assist at the event! ",
-	chair: 'Kylee Lyons'
-},
-{
-	title: 'CivicLAvia: Heart of LA Race',
-	start: '2018-12-02 09:45:00',
-	end: '2018-12-02 15:00:00',
-	description: "Help out at the annual Heart of LA Route. You will be helping with way-finding/ slow zones/dismount areas and providing participants with route/activity information! You'll also be cheering them on!",
-	chair: 'Kylee Lyons'
-},
-{
-	title: 'Monday Mornings: Ornaments & Snow Globes',
-	start: '2018-12-03 09:00:00',
-	end: '2018-12-03 12:30:00',
-	description: "Get in a festive spirit and then come decorate ornaments and snow globes for the holidays!",
+	title: '#TreePoseChallenge Round 2',
+	start: '2019-03-07 14:30:00',
+	end: '2019-03-07 17:00:00',
+	description: "Come help with advocacy for the trees and for nature, while having a really fun time! We're going to hike to the Lone Tree, pose with it and post those photos on some sort of social media with the hashtag #TreePoseChallenge. Trees need people and people need trees and with the onslaught of wildfires, droughts, excessive heat and massive flooding, our community needs help and we can help by showing our love of the trees!",
 	chair: 'Kylee Lyons'
 }
 ];
